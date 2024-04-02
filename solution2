@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Speed checker</title>
+    <style>
+        #cmm{
+    background-color: black;
+    color: darkred;
+}
+#kwm{
+    background-color: black;
+    color: blue;
+}
+    </style>
+</head>
+<body>
+    <h2 id="cmm">Speed Checker</h2>
+    <label for="speed">Enter the speed of the car:</label>
+    <input type="number" id="speed" name="speed">
+    <button onclick="checkSpeed()" id="kwm">Check Speed</button>
+    <p id="result"></p>
+
+    <script>
+        function checkSpeed() {
+    var speedInput = document.getElementById("speed").value;
+    var speed = parseFloat(speedInput);
+    var speedLimit = 70;
+    var demeritPoints = 0;
+
+    if (speed <= speedLimit) {
+        document.getElementById("result").innerHTML = "Ok";
+    } else {
+        demeritPoints = Math.floor((speed - speedLimit) / 5);
+        document.getElementById("result").innerHTML = "Points: " + demeritPoints;
+    }
+
+    if (demeritPoints > 12) {
+        document.getElementById("result").innerHTML = "License suspended";
+    }
+}
+    </script>
+</body>
+</html>
